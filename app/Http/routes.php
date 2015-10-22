@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('users', 'UserController');
+post('logout', 'UserController@logout');

@@ -66,7 +66,7 @@ class UserController extends Controller
         return json_encode(array(
                 'success' => true,
                 'messages' => $msg,
-                'response' => Null), 400
+                'response' => Null), 200
         );
     }
 
@@ -132,7 +132,7 @@ class UserController extends Controller
         $userProfile->lng = $data['lng'];
         $data['user_id'] = $userProfile->id;
         $deviceDetail->insert($data);
-        $msg = "Profile saved successfully.";
+        $msg[] = "Profile saved successfully.";
         return $this->successMessageWithVar($msg, $userProfile);
     }
 
@@ -179,5 +179,20 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function logout()
+    {
+        $deviceDetail = new DeviceDetails();
+        $data = Input::all();
+        $delete = $deviceDetail->deleteDetail($data['user_id'],$data['token']);
+        if($delete==0)
+        {
+            $msg[] = "New User";
+            return $this->successMessage($msg);
+        }else{
+            $msg[] = "Logout Successfully.";
+            return $this->successMessage($msg);
+        }
     }
 }

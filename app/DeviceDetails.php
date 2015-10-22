@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use DB;
 class DeviceDetails extends Model
 {
     protected $table = "users_device_details";
@@ -30,5 +30,10 @@ class DeviceDetails extends Model
             $this->save();
             return $this;
         }
+    }
+
+    public function deleteDetail($userId, $token)
+    {
+        return DB::table('users_device_details')->where('user_id', '=', $userId)->where('token', '=', $token)->delete();
     }
 }
