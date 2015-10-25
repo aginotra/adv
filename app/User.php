@@ -72,6 +72,9 @@ class User extends Model implements AuthenticatableContract,
         if (isset($data['id_type'])) {
             $user->id_type = $data['id_type'];
         }
+        if (isset($data['user_type']) && !isset($data['user_id'])) {
+            $user->user_type = $data['user_type'];
+        }
         if (isset($data['name'])) {
             $user->name = $data['name'];
         }

@@ -32,11 +32,13 @@ class UserController extends Controller
                 'tp_id' => Input::get('tp_id'),
                 'img_hash' => Input::get('img_hash'),
                 'id_type' => Input::get('id_type'),
+                'user_type' => Input::get('user_type'),
                 'name' => Input::get('name')
             ), array(
                 'tp_id' => 'required',
                 'img_hash' => 'required',
                 'id_type' => 'required',
+                'user_type' => 'required',
                 'name' => 'required'
             )
         );
