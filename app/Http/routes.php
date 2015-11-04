@@ -16,4 +16,8 @@ Route::get('/', function () {
 });
 
 Route::resource('users', 'UserController');
+Route::resource('advertiser', 'AdvertiserController');
+Route::resource('publisher', 'PublisherController');
+Route::resource('advertiser-buss', 'AdvertiserBussController');
+Route::resource('publisher-buss', 'PublisherBussController');
 post('logout', 'UserController@logout');
