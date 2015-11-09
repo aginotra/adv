@@ -20,4 +20,5 @@ Route::resource('advertiser', 'AdvertiserController');
 Route::resource('publisher', 'PublisherController');
 Route::resource('advertiser-buss', 'AdvertiserBussController');
 Route::resource('publisher-buss', 'PublisherBussController');
+Route::resource('review', 'ReviewController');
 post('logout', 'UserController@logout');
